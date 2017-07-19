@@ -75,7 +75,7 @@ def parse_wcf_date(wcf_date, throw_on_wrong_format=False):
         groups = match.groups()
         ticks = None
         ticks = int(groups[0]) / 1000
-        return datetime.datetime.fromtimestamputc(ticks)
+        return datetime.datetime.utcfromtimestamp(ticks)
     elif throw_on_wrong_format:
         raise ValueError("Could not parse as a WCF date string: %s." %
                          wcf_date)
